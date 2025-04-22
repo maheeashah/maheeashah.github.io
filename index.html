@@ -1,179 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mahee Shah | Cloud, DevOps, AI Enthusiast</title>
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" type="image/png">
+  <link rel="icon" href="images/favicon.png" />
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
   <style>
+    :root {
+      --bg: #f5f5f5;
+      --accent: #4f46e5;
+      --text: #374151;
+      --hero-bg: url('images/hero.jpg') center/cover no-repeat;
+    }
     body {
-      font-family: 'Georgia', serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #e0f7fa, #ffffff);
-      color: #374151;
-      overflow-x: hidden;
+      font-family: Georgia, serif;
+      margin: 0; padding: 0;
+      background: var(--bg); color: var(--text);
     }
-    header {
-      background: linear-gradient(to right, #bcd4e6, #ffffff);
-      text-align: center;
-      padding: 3rem;
-      position: relative;
+    #hero {
+      height: 60vh;
+      background: var(--hero-bg);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; color: white;
     }
-    h1, h2 {
-      margin: 0.5rem 0;
+    #hero h1 {
+      font-size: 3rem; text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      animation: fadeIn 1.5s ease-out;
     }
-    p {
-      max-width: 700px;
-      margin: 1rem auto;
-    }
-    section {
-      padding: 3rem 1rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    .project {
-      background: white;
-      margin: 1.5rem 0;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-    .project:hover {
-      transform: scale(1.02);
-    }
-    a {
-      color: #1e40af;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      background: #f8fafc;
-      padding: 2rem;
-      font-size: 0.9rem;
-    }
-    .button {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      margin: 0.5rem;
-      background: #1e40af;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .btn {
+      display: inline-flex; align-items: center;
+      background: var(--accent); color: white;
+      padding: 0.5rem 1rem; border-radius: 4px;
       transition: background 0.3s;
     }
-    .button:hover {
-      background: #1d4ed8;
-    }
-    /* Floating Clouds */
-    .cloud {
-      position: absolute;
-      width: 100px;
-      opacity: 0.6;
-      animation: float 60s linear infinite;
-    }
-    .cloud:nth-child(1) { top: 20px; left: -150px; animation-delay: 0s; }
-    .cloud:nth-child(2) { top: 80px; left: -200px; animation-delay: 15s; }
-    .cloud:nth-child(3) { top: 150px; left: -180px; animation-delay: 30s; }
-    @keyframes float {
-      from { transform: translateX(0); }
-      to { transform: translateX(150vw); }
-    }
-    /* Fade in sections */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 1s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
-    }
+    .btn:hover { background: darken(var(--accent),10%); }
+    .section { padding: 4rem 1rem; opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
+    .section.visible { opacity: 1; transform: none; }
+    .case-study { background: white; border-radius: 8px; overflow: hidden;
+                   box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 2rem;
+                   display: grid; grid-template-columns: 1fr 2fr; }
+    .case-study img { width: 100%; object-fit: cover; }
+    .case-study div { padding: 1rem; }
   </style>
 </head>
-
 <body>
+  <div id="hero">
+    <h1>Hello, I’m Mahee Shah</h1>
+  </div>
 
-  <header>
-    <div class="cloud" style="top:20px;"></div>
-    <div class="cloud" style="top:80px;"></div>
-    <div class="cloud" style="top:150px;"></div>
-    <h1>Mahee Shah</h1>
-    <p>Cloud | DevOps | AI Enthusiast</p>
-  </header>
-
-  <section class="fade-in" id="about">
+  <section class="section" id="about">
     <h2>About Me</h2>
-    <p>
-      I'm passionate about building scalable cloud applications, automating infrastructure, and applying AI to real-world problems. 
-      I have hands-on experience with AWS, Azure, Python, and DevOps tools, and I love creating meaningful projects that connect technology and innovation.
-    </p>
+    <p>Technology should connect, empower, and inspire…</p>
+    <a href="about.html" class="btn"><i class="fas fa-info-circle"></i>&nbsp;Learn More</a>
   </section>
 
-  <section class="fade-in" id="deeper-about">
-    <h2>More About Me</h2>
-    <p>
-      I’ve always believed that technology should do more than just function — it should connect, empower, and inspire. 
-      My passion for Cloud Computing, DevOps, and AI isn’t just about the technical challenge — it’s about building systems that make life easier, more human, and more creative.
-    </p>
-    <p>
-      Before I found my home in technology, I spent time working in healthcare, which taught me compassion, resilience, and the real-world importance of reliable systems. 
-      Today, I bring that same mindset to every project: a drive to create solutions that are not only powerful, but also meaningful.
-    </p>
-    <p>
-      Outside of coding, I’m passionate about creative storytelling, scientific discovery, and building spaces where people feel seen and supported. 
-      Whether it’s automating workflows, deploying cloud applications, or simply sharing ideas, I’m here to keep growing, connecting, and creating work that matters.
-    </p>
+  <section class="section" id="projects">
+    <h2>Case Studies</h2>
+    <div class="case-study">
+      <img src="images/travogram.jpg" alt="Travogram" />
+      <div>
+        <h3>Travogram Travel Planner</h3>
+        <p>Serverless app with Azure Functions & Google Maps APIs…</p>
+        <a href="https://github.com/maheeashah/travogram-travel-planner" class="btn">
+          <i class="fab fa-github"></i>&nbsp;View Code
+        </a>
+      </div>
+    </div>
+    <!-- Repeat case-study blocks for other projects -->
   </section>
 
-  <section class="fade-in">
-    <h2>Projects</h2>
-
-    <div class="project">
-      <h3><a href="https://github.com/maheeashah/travogram-travel-planner" target="_blank">Travogram Travel Planner</a></h3>
-      <p>Cloud-based travel itinerary builder using Azure Functions, Google Maps APIs, and Azure SQL. Built serverless APIs and integrated external data for dynamic travel planning.</p>
-    </div>
-
-    <div class="project">
-      <h3><a href="https://github.com/maheeashah/ai-model-deployment-aws-" target="_blank">AI Model Deployment on AWS</a></h3>
-      <p>Developed a machine learning model and deployed it on AWS Lambda using API Gateway for real-time predictions, automated with GitHub Actions.</p>
-    </div>
-
-    <div class="project">
-      <h3><a href="https://github.com/maheeashah/ncar-cesm-climate-simulation" target="_blank">NCAR CESM Climate Simulation</a></h3>
-      <p>Simulated and analyzed climate-ice sheet models using CESM/CISM workflows. Visualized surface profiles and explored high-performance cloud data workflows.</p>
-    </div>
-
-  </section>
-
-  <section class="fade-in">
+  <section class="section" id="contact">
     <h2>Contact</h2>
-    <a class="button" href="https://linkedin.com/in/maheeshah" target="_blank">LinkedIn</a>
-    <a class="button" href="mailto:maheeashah@hotmail.com">Email Me</a>
+    <a href="https://linkedin.com/in/maheeshah" class="btn">
+      <i class="fab fa-linkedin"></i>&nbsp;LinkedIn
+    </a>
+    <a href="mailto:maheeashah@hotmail.com" class="btn">
+      <i class="fas fa-envelope"></i>&nbsp;Email Me
+    </a>
   </section>
 
-  <footer>
-    &copy; 2025 Mahee Shah. Designed with passion and clouds ☁️
+  <footer style="text-align:center;padding:2rem;background:#fff;">
+    &copy; 2025 Mahee Shah
   </footer>
 
-<script>
-  // Intersection observer for fade-in animation
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  });
-
-  document.querySelectorAll('.fade-in').forEach(section => {
-    observer.observe(section);
-  });
-</script>
-
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.section').forEach(s => obs.observe(s));
+  </script>
 </body>
 </html>
