@@ -1,57 +1,10 @@
-Skip to content
-Navigation Menu
-maheeashah
-maheeashah.github.io
-
-Type / to search
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Commit 19d10a5
-maheeashah
-maheeashah
-authored
-47 minutes ago
-·
-·
-Verified
-Update index.html
-main
-1 parent 
-fff01f9
- commit 
-19d10a5
-File tree
-Filter files…
-index.html
-1 file changed
-+70
--154
-lines changed
-Search within code
- 
-Diff for:‎index.html
-+70
--154
-Original file line number	Diff line number	Diff line change
-@@ -1,179 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mahee Shah | Cloud, DevOps, AI Enthusiast</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" type="image/png">
-  <link rel="icon" href="images/favicon.png" />
-  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
   <style>
     body {
       font-family: 'Georgia', serif;
@@ -89,11 +42,6 @@ Original file line number	Diff line number	Diff line change
     }
     .project:hover {
       transform: scale(1.02);
-    :root {
-      --bg: #f5f5f5;
-      --accent: #4f46e5;
-      --text: #374151;
-      --hero-bg: url('images/hero.jpg') center/cover no-repeat;
     }
     a {
       color: #1e40af;
@@ -116,26 +64,6 @@ Original file line number	Diff line number	Diff line change
       color: white;
       border-radius: 5px;
       text-decoration: none;
-    body {
-      font-family: Georgia, serif;
-      margin: 0; padding: 0;
-      background: var(--bg); color: var(--text);
-    }
-    #hero {
-      height: 60vh;
-      background: var(--hero-bg);
-      display: flex; align-items: center; justify-content: center;
-      position: relative; color: white;
-    }
-    #hero h1 {
-      font-size: 3rem; text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-      animation: fadeIn 1.5s ease-out;
-    }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .btn {
-      display: inline-flex; align-items: center;
-      background: var(--accent); color: white;
-      padding: 0.5rem 1rem; border-radius: 4px;
       transition: background 0.3s;
     }
     .button:hover {
@@ -165,20 +93,10 @@ Original file line number	Diff line number	Diff line change
       opacity: 1;
       transform: none;
     }
-    .btn:hover { background: darken(var(--accent),10%); }
-    .section { padding: 4rem 1rem; opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
-    .section.visible { opacity: 1; transform: none; }
-    .case-study { background: white; border-radius: 8px; overflow: hidden;
-                   box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 2rem;
-                   display: grid; grid-template-columns: 1fr 2fr; }
-    .case-study img { width: 100%; object-fit: cover; }
-    .case-study div { padding: 1rem; }
   </style>
 </head>
+
 <body>
-  <div id="hero">
-    <h1>Hello, I’m Mahee Shah</h1>
-  </div>
 
   <header>
     <div class="cloud" style="top:20px;"></div>
@@ -187,15 +105,13 @@ Original file line number	Diff line number	Diff line change
     <h1>Mahee Shah</h1>
     <p>Cloud | DevOps | AI Enthusiast</p>
   </header>
+
   <section class="fade-in" id="about">
-  <section class="section" id="about">
     <h2>About Me</h2>
     <p>
       I'm passionate about building scalable cloud applications, automating infrastructure, and applying AI to real-world problems. 
       I have hands-on experience with AWS, Azure, Python, and DevOps tools, and I love creating meaningful projects that connect technology and innovation.
     </p>
-    <p>Technology should connect, empower, and inspire…</p>
-    <a href="about.html" class="btn"><i class="fas fa-info-circle"></i>&nbsp;Learn More</a>
   </section>
 
   <section class="fade-in" id="deeper-about">
@@ -213,51 +129,35 @@ Original file line number	Diff line number	Diff line change
       Whether it’s automating workflows, deploying cloud applications, or simply sharing ideas, I’m here to keep growing, connecting, and creating work that matters.
     </p>
   </section>
+
   <section class="fade-in">
     <h2>Projects</h2>
+
     <div class="project">
       <h3><a href="https://github.com/maheeashah/travogram-travel-planner" target="_blank">Travogram Travel Planner</a></h3>
       <p>Cloud-based travel itinerary builder using Azure Functions, Google Maps APIs, and Azure SQL. Built serverless APIs and integrated external data for dynamic travel planning.</p>
-  <section class="section" id="projects">
-    <h2>Case Studies</h2>
-    <div class="case-study">
-      <img src="images/travogram.jpg" alt="Travogram" />
-      <div>
-        <h3>Travogram Travel Planner</h3>
-        <p>Serverless app with Azure Functions & Google Maps APIs…</p>
-        <a href="https://github.com/maheeashah/travogram-travel-planner" class="btn">
-          <i class="fab fa-github"></i>&nbsp;View Code
-        </a>
-      </div>
     </div>
+
     <div class="project">
       <h3><a href="https://github.com/maheeashah/ai-model-deployment-aws-" target="_blank">AI Model Deployment on AWS</a></h3>
       <p>Developed a machine learning model and deployed it on AWS Lambda using API Gateway for real-time predictions, automated with GitHub Actions.</p>
     </div>
+
     <div class="project">
       <h3><a href="https://github.com/maheeashah/ncar-cesm-climate-simulation" target="_blank">NCAR CESM Climate Simulation</a></h3>
       <p>Simulated and analyzed climate-ice sheet models using CESM/CISM workflows. Visualized surface profiles and explored high-performance cloud data workflows.</p>
     </div>
-    <!-- Repeat case-study blocks for other projects -->
+
   </section>
 
   <section class="fade-in">
-  <section class="section" id="contact">
     <h2>Contact</h2>
     <a class="button" href="https://linkedin.com/in/maheeshah" target="_blank">LinkedIn</a>
     <a class="button" href="mailto:maheeashah@hotmail.com">Email Me</a>
-    <a href="https://linkedin.com/in/maheeshah" class="btn">
-      <i class="fab fa-linkedin"></i>&nbsp;LinkedIn
-    </a>
-    <a href="mailto:maheeashah@hotmail.com" class="btn">
-      <i class="fas fa-envelope"></i>&nbsp;Email Me
-    </a>
   </section>
 
   <footer>
     &copy; 2025 Mahee Shah. Designed with passion and clouds ☁️
-  <footer style="text-align:center;padding:2rem;background:#fff;">
-    &copy; 2025 Mahee Shah
   </footer>
 
 <script>
@@ -269,23 +169,11 @@ Original file line number	Diff line number	Diff line change
       }
     });
   });
+
   document.querySelectorAll('.fade-in').forEach(section => {
     observer.observe(section);
   });
 </script>
-  <script>
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.section').forEach(s => obs.observe(s));
-  </script>
+
 </body>
 </html>
-0 commit comments
-Comments
-0
- (0)
-Comment
-You're receiving notifications because you're subscribed to this thread.
-
-Update index.html · maheeashah/maheeashah.github.io@19d10a5
