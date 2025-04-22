@@ -56,6 +56,19 @@
       padding: 2rem;
       font-size: 0.9rem;
     }
+    .button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      background: #1e40af;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background: #1d4ed8;
+    }
     /* Floating Clouds */
     .cloud {
       position: absolute;
@@ -63,21 +76,9 @@
       opacity: 0.6;
       animation: float 60s linear infinite;
     }
-    .cloud:nth-child(1) {
-      top: 20px;
-      left: -150px;
-      animation-delay: 0s;
-    }
-    .cloud:nth-child(2) {
-      top: 80px;
-      left: -200px;
-      animation-delay: 15s;
-    }
-    .cloud:nth-child(3) {
-      top: 150px;
-      left: -180px;
-      animation-delay: 30s;
-    }
+    .cloud:nth-child(1) { top: 20px; left: -150px; animation-delay: 0s; }
+    .cloud:nth-child(2) { top: 80px; left: -200px; animation-delay: 15s; }
+    .cloud:nth-child(3) { top: 150px; left: -180px; animation-delay: 30s; }
     @keyframes float {
       from { transform: translateX(0); }
       to { transform: translateX(150vw); }
@@ -98,16 +99,35 @@
 <body>
 
   <header>
-    <img src="https://cdn-icons-png.flaticon.com/512/4007/4007610.png" class="cloud" style="top:20px;">
-    <img src="https://cdn-icons-png.flaticon.com/512/4007/4007610.png" class="cloud" style="top:80px;">
-    <img src="https://cdn-icons-png.flaticon.com/512/4007/4007610.png" class="cloud" style="top:150px;">
+    <div class="cloud" style="top:20px;"></div>
+    <div class="cloud" style="top:80px;"></div>
+    <div class="cloud" style="top:150px;"></div>
     <h1>Mahee Shah</h1>
     <p>Cloud | DevOps | AI Enthusiast</p>
   </header>
 
-  <section class="fade-in">
+  <section class="fade-in" id="about">
     <h2>About Me</h2>
-    <p>I'm passionate about building scalable cloud applications, automating infrastructure, and applying AI to real-world problems. I have hands-on experience with AWS, Azure, Python, and DevOps tools, and I love creating meaningful projects that connect technology and innovation.</p>
+    <p>
+      I'm passionate about building scalable cloud applications, automating infrastructure, and applying AI to real-world problems. 
+      I have hands-on experience with AWS, Azure, Python, and DevOps tools, and I love creating meaningful projects that connect technology and innovation.
+    </p>
+  </section>
+
+  <section class="fade-in" id="deeper-about">
+    <h2>More About Me</h2>
+    <p>
+      I’ve always believed that technology should do more than just function — it should connect, empower, and inspire. 
+      My passion for Cloud Computing, DevOps, and AI isn’t just about the technical challenge — it’s about building systems that make life easier, more human, and more creative.
+    </p>
+    <p>
+      Before I found my home in technology, I spent time working in healthcare, which taught me compassion, resilience, and the real-world importance of reliable systems. 
+      Today, I bring that same mindset to every project: a drive to create solutions that are not only powerful, but also meaningful.
+    </p>
+    <p>
+      Outside of coding, I’m passionate about creative storytelling, scientific discovery, and building spaces where people feel seen and supported. 
+      Whether it’s automating workflows, deploying cloud applications, or simply sharing ideas, I’m here to keep growing, connecting, and creating work that matters.
+    </p>
   </section>
 
   <section class="fade-in">
@@ -132,7 +152,8 @@
 
   <section class="fade-in">
     <h2>Contact</h2>
-    <p><a href="https://github.com/maheeashah" target="_blank">GitHub</a> | <a href="https://linkedin.com/in/maheeshah" target="_blank">LinkedIn</a></p>
+    <a class="button" href="https://linkedin.com/in/maheeshah" target="_blank">LinkedIn</a>
+    <a class="button" href="mailto:maheeashah@hotmail.com">Email Me</a>
   </section>
 
   <footer>
