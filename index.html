@@ -1,95 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mahee Shah | Cloud, DevOps, AI Enthusiast</title>
-  <link rel="icon" href="images/favicon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mahee Shah | Welcome</title>
+  <!-- Font Awesome for social icons -->
   <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
   <style>
-    :root {
-      --bg: #f5f5f5;
-      --accent: #4f46e5;
-      --text: #374151;
-      --hero-bg: url('images/hero.jpg') center/cover no-repeat;
+    /* Reset & base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, serif; background: #feeef1; color: #333; }
+
+    /* Container */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
     }
-    body {
-      font-family: Georgia, serif;
-      margin: 0; padding: 0;
-      background: var(--bg); color: var(--text);
+
+    /* Logo box */
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      border: 2px solid #e0aac3;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      background: white;
     }
-    #hero {
-      height: 60vh;
-      background: var(--hero-bg);
-      display: flex; align-items: center; justify-content: center;
-      position: relative; color: white;
+
+    /* Nav */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
     }
-    #hero h1 {
-      font-size: 3rem; text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-      animation: fadeIn 1.5s ease-out;
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color .2s;
     }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .btn {
-      display: inline-flex; align-items: center;
-      background: var(--accent); color: white;
-      padding: 0.5rem 1rem; border-radius: 4px;
-      transition: background 0.3s;
+    nav a:hover { color: #b33f6f; }
+
+    /* Left content */
+    .intro {
+      max-width: 50%;
     }
-    .btn:hover { background: darken(var(--accent),10%); }
-    .section { padding: 4rem 1rem; opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
-    .section.visible { opacity: 1; transform: none; }
-    .case-study { background: white; border-radius: 8px; overflow: hidden;
-                   box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 2rem;
-                   display: grid; grid-template-columns: 1fr 2fr; }
-    .case-study img { width: 100%; object-fit: cover; }
-    .case-study div { padding: 1rem; }
+    .intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .intro p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .social a {
+      margin-right: 1rem;
+      color: #b33f6f;
+      font-size: 1.2rem;
+      transition: opacity .2s;
+    }
+    .social a:hover { opacity: .7; }
+
+    /* Portrait */
+    .portrait {
+      position: relative;
+      flex-shrink: 0;
+    }
+    .portrait img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px dotted #e0aac3;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .hero { flex-direction: column-reverse; text-align: center; gap: 2rem; }
+      .intro { max-width: 100%; }
+      .portrait img { width: 200px; height: 200px; }
+    }
   </style>
 </head>
 <body>
-  <div id="hero">
-    <h1>Hello, I’m Mahee Shah</h1>
-  </div>
 
-  <section class="section" id="about">
-    <h2>About Me</h2>
-    <p>Technology should connect, empower, and inspire…</p>
-    <a href="about.html" class="btn"><i class="fas fa-info-circle"></i>&nbsp;Learn More</a>
-  </section>
+  <header class="hero">
+    <!-- Left: logo + nav -->
+    <div style="width:50%; display:flex; align-items:center; justify-content:space-between;">
+      <div class="logo">MS</div>
+      <nav>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
 
-  <section class="section" id="projects">
-    <h2>Case Studies</h2>
-    <div class="case-study">
-      <img src="images/travogram.jpg" alt="Travogram" />
-      <div>
-        <h3>Travogram Travel Planner</h3>
-        <p>Serverless app with Azure Functions & Google Maps APIs…</p>
-        <a href="https://github.com/maheeashah/travogram-travel-planner" class="btn">
-          <i class="fab fa-github"></i>&nbsp;View Code
-        </a>
+    <!-- Right: intro + social -->
+    <div class="intro">
+      <h1>Hello, I’m Mahee Shah</h1>
+      <p>Creative problem-solver passionate about building real‑world applications that make life easier.</p>
+      <div class="social">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
-    <!-- Repeat case-study blocks for other projects -->
-  </section>
 
-  <section class="section" id="contact">
-    <h2>Contact</h2>
-    <a href="https://linkedin.com/in/maheeshah" class="btn">
-      <i class="fab fa-linkedin"></i>&nbsp;LinkedIn
-    </a>
-    <a href="mailto:maheeashah@hotmail.com" class="btn">
-      <i class="fas fa-envelope"></i>&nbsp;Email Me
-    </a>
-  </section>
+    <!-- Portrait -->
+    <div class="portrait">
+      <img src="https://via.placeholder.com/250" alt="Mahee Shah Portrait">
+    </div>
+  </header>
 
-  <footer style="text-align:center;padding:2rem;background:#fff;">
-    &copy; 2025 Mahee Shah
-  </footer>
-
-  <script>
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.section').forEach(s => obs.observe(s));
-  </script>
 </body>
 </html>
