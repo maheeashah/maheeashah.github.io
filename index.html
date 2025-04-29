@@ -1,119 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mahee Shah</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pM8+6WjXJmVzR0+MRKk5VEN2rXg+RlW9k+VQ4k7lE+rqW7y1CU8UN7fapVUGkK/5OWQA7rP0RXZZVJc2D0P/Lg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
   <style>
+    :root {
+      --primary: #2e86de;
+      --secondary: #1b4f72;
+      --background: #f5f7fa;
+      --card-bg: #ffffff;
+      --text: #333333;
+      --radius: 8px;
+      --shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Open Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
+      font-family: 'Roboto', sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
     }
+    a { text-decoration: none; }
+
     header {
-      background-color: #2e86de;
+      background: var(--primary);
       color: white;
-      padding: 20px;
       text-align: center;
+      padding: 4rem 1rem;
     }
-    nav {
-      background-color: #1b4f72;
-      text-align: center;
-      padding: 10px 0;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    section {
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
-    }
-    h1, h2 {
-      color: #2e86de;
-    }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 10px;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #2e86de;
-      color: white;
-    }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.2rem; }
     .button {
       display: inline-block;
-      padding: 10px 20px;
-      margin-top: 20px;
-      background-color: #1b4f72;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--secondary);
       color: white;
-      text-decoration: none;
-      border-radius: 5px;
+      border-radius: var(--radius);
+      transition: background 0.3s;
+    }
+    .button:hover { background: var(--primary); }
+
+    nav {
+      background: var(--secondary);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem 0;
+    }
+    nav ul li { margin: 0 1rem; }
+    nav ul li a {
+      color: white;
+      font-weight: bold;
+      padding: 0.5rem 0.75rem;
+      transition: background 0.3s;
+    }
+    nav ul li a:hover { background: var(--primary); border-radius: var(--radius); }
+
+    section {
+      padding: 4rem 1rem;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+
+    h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+    }
+    .card h3 {
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Skills */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .skill-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1rem;
+      text-align: center;
+    }
+    .skill-card strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+    }
+
+    /* Contact */
+    .contact-list {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0;
+    }
+    .contact-list li a {
+      color: var(--text);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s;
+    }
+    .contact-list li a:hover { color: var(--primary); }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--secondary);
+      color: white;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Mahee Shah</h1>
-  <p>Computer Science Student | Aspiring Product Manager | Problem Solver</p>
-  <a class="button" href="path/to/your/resume.pdf" target="_blank">Download Resume</a>
-</header>
+  <header>
+    <h1>Mahee Shah</h1>
+    <p>Computer Science Student | Aspiring Product Manager | Problem Solver</p>
+    <a class="button" href="path/to/your/resume.pdf" target="_blank">Download Resume</a>
+  </header>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-</nav>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>I'm a Computer Science student passionate about building technology-driven solutions that are both technically strong and user-centered. My work bridges product management, software development, and data analysis. Whether I'm writing code, designing features, or collaborating across teams, I enjoy working at the intersection of technology, strategy, and impact.</p>
-</section>
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        I'm a Computer Science student passionate about building technology-driven solutions that are both
+        technically strong and user-centered. My work bridges product management, software development,
+        and data analysis. Whether I'm writing code, designing features, or collaborating across teams,
+        I enjoy working at the intersection of technology, strategy, and impact.
+      </p>
+    </div>
+  </section>
 
-<section id="projects">
-  <h2>Projects</h2>
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="card">
+          <h3>Travogram – Product-Led Google Places API Integration</h3>
+          <p>
+            Collaborated with a startup to design and launch an Autocomplete search feature using the
+            Google Places API. Led user story writing, crafted Figma wireframes, participated in sprint
+            planning, and optimized backend calls to boost search speed.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Content Optimization Dashboard</h3>
+          <p>
+            Led development of an internal dashboard at Sports Media to track SEO and marketing performance.
+            Defined product requirements and wireframes, prioritized features in Agile sprints, and boosted
+            campaign engagement by 25%.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Greenland Ice Sheet Simulation & Analysis</h3>
+          <p>
+            Ran climate simulations on NCAR’s HPC systems to analyze changes in Greenland’s ice sheet
+            through 2100. Built modular workflows and visuals to support research findings.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <h3>Travogram – Product-Led Integration of Google Places API</h3>
-  <p>Collaborated with a startup team to design and launch an Autocomplete search feature using the Google Places API. Led user story writing, created wireframes with Figma, participated in sprint planning, and improved backend efficiency to enhance search speed.</p>
+  <section id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill-card">
+          <strong>Product Management</strong>
+          <span>User Stories · Roadmapping · Sprint Planning · Feature Prioritization</span>
+        </div>
+        <div class="skill-card">
+          <strong>Technical</strong>
+          <span>Python · Java · HTML · JavaScript · Machine Learning (TensorFlow, NumPy)</span>
+        </div>
+        <div class="skill-card">
+          <strong>Tools</strong>
+          <span>Git · VS Code · Jupyter · Figma · CESM · Google Cloud (basic)</span>
+        </div>
+        <div class="skill-card">
+          <strong>Methodologies</strong>
+          <span>Agile · Scrum · Version Control</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <h3>Content Optimization Dashboard (Sports Media, Inc.)</h3>
-  <p>Led development of an internal dashboard to track SEO and marketing performance. Defined product requirements, created wireframes, and prioritized features, resulting in a 25% boost in campaign engagement.</p>
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li>
+          <a href="mailto:maheeashah@hotmail.com">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/maheeshah" target="_blank">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/maheeashah" target="_blank">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-  <h3>Greenland Ice Sheet Simulation & Analysis (NCAR)</h3>
-  <p>Ran climate simulations on high-performance computing systems to analyze changes in Greenland’s ice sheet through 2100. Built modular workflows and visualizations to support research outputs.</p>
-
-</section>
-
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skills-grid">
-    <div><strong>Product Management</strong><br>User Stories, Roadmapping, Sprint Planning, Feature Prioritization</div>
-    <div><strong>Technical</strong><br>Python, Java, HTML, JavaScript, Machine Learning (TensorFlow, NumPy)</div>
-    <div><strong>Tools</strong><br>Git, VS Code, Jupyter, Figma, CESM, Google Cloud (basic)</div>
-    <div><strong>Methodologies</strong><br>Agile, Scrum, Version Control</div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:maheeashah@hotmail.com">maheeashah@hotmail.com</a></p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/maheeshah" target="_blank">linkedin.com/in/maheeshah</a></p>
-  <p>GitHub: <a href="https://github.com/maheeashah" target="_blank">github.com/maheeashah</a></p>
-</section>
-
-<footer>
-  <p>© 2025 Mahee Shah</p>
-</footer>
+  <footer>
+    <p>© 2025 Mahee Shah</p>
+  </footer>
 
 </body>
 </html>
