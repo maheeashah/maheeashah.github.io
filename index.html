@@ -2,178 +2,118 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mahee Shah | Cloud, DevOps, AI Enthusiast</title>
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mahee Shah</title>
   <style>
     body {
-      font-family: 'Georgia', serif;
+      font-family: 'Open Sans', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #e0f7fa, #ffffff);
-      color: #374151;
-      overflow-x: hidden;
+      background-color: #f9f9f9;
+      color: #333;
     }
     header {
-      background: linear-gradient(to right, #bcd4e6, #ffffff);
+      background-color: #2e86de;
+      color: white;
+      padding: 20px;
       text-align: center;
-      padding: 3rem;
-      position: relative;
     }
-    h1, h2 {
-      margin: 0.5rem 0;
+    nav {
+      background-color: #1b4f72;
+      text-align: center;
+      padding: 10px 0;
     }
-    p {
-      max-width: 700px;
-      margin: 1rem auto;
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
     }
     section {
-      padding: 3rem 1rem;
+      padding: 30px;
       max-width: 900px;
       margin: auto;
     }
-    .project {
-      background: white;
-      margin: 1.5rem 0;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+    h1, h2 {
+      color: #2e86de;
     }
-    .project:hover {
-      transform: scale(1.02);
-    }
-    a {
-      color: #1e40af;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
     }
     footer {
       text-align: center;
-      background: #f8fafc;
-      padding: 2rem;
-      font-size: 0.9rem;
+      padding: 20px;
+      background-color: #2e86de;
+      color: white;
     }
     .button {
       display: inline-block;
-      padding: 0.5rem 1rem;
-      margin: 0.5rem;
-      background: #1e40af;
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #1b4f72;
       color: white;
-      border-radius: 5px;
       text-decoration: none;
-      transition: background 0.3s;
-    }
-    .button:hover {
-      background: #1d4ed8;
-    }
-    /* Floating Clouds */
-    .cloud {
-      position: absolute;
-      width: 100px;
-      opacity: 0.6;
-      animation: float 60s linear infinite;
-    }
-    .cloud:nth-child(1) { top: 20px; left: -150px; animation-delay: 0s; }
-    .cloud:nth-child(2) { top: 80px; left: -200px; animation-delay: 15s; }
-    .cloud:nth-child(3) { top: 150px; left: -180px; animation-delay: 30s; }
-    @keyframes float {
-      from { transform: translateX(0); }
-      to { transform: translateX(150vw); }
-    }
-    /* Fade in sections */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 1s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
+      border-radius: 5px;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="cloud" style="top:20px;"></div>
-    <div class="cloud" style="top:80px;"></div>
-    <div class="cloud" style="top:150px;"></div>
-    <h1>Mahee Shah</h1>
-    <p>Cloud | DevOps | AI Enthusiast</p>
-  </header>
+<header>
+  <h1>Mahee Shah</h1>
+  <p>Computer Science Student | Aspiring Product Manager | Problem Solver</p>
+  <a class="button" href="path/to/your/resume.pdf" target="_blank">Download Resume</a>
+</header>
 
-  <section class="fade-in" id="about">
-    <h2>About Me</h2>
-    <p>
-      I'm passionate about building scalable cloud applications, automating infrastructure, and applying AI to real-world problems. 
-      I have hands-on experience with AWS, Azure, Python, and DevOps tools, and I love creating meaningful projects that connect technology and innovation.
-    </p>
-  </section>
+<nav>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <section class="fade-in" id="deeper-about">
-    <h2>More About Me</h2>
-    <p>
-      I’ve always believed that technology should do more than just function — it should connect, empower, and inspire. 
-      My passion for Cloud Computing, DevOps, and AI isn’t just about the technical challenge — it’s about building systems that make life easier, more human, and more creative.
-    </p>
-    <p>
-      Before I found my home in technology, I spent time working in healthcare, which taught me compassion, resilience, and the real-world importance of reliable systems. 
-      Today, I bring that same mindset to every project: a drive to create solutions that are not only powerful, but also meaningful.
-    </p>
-    <p>
-      Outside of coding, I’m passionate about creative storytelling, scientific discovery, and building spaces where people feel seen and supported. 
-      Whether it’s automating workflows, deploying cloud applications, or simply sharing ideas, I’m here to keep growing, connecting, and creating work that matters.
-    </p>
-  </section>
+<section id="about">
+  <h2>About Me</h2>
+  <p>I'm a Computer Science student passionate about building technology-driven solutions that are both technically strong and user-centered. My work bridges product management, software development, and data analysis. Whether I'm writing code, designing features, or collaborating across teams, I enjoy working at the intersection of technology, strategy, and impact.</p>
+</section>
 
-  <section class="fade-in">
-    <h2>Projects</h2>
+<section id="projects">
+  <h2>Projects</h2>
 
-    <div class="project">
-      <h3><a href="https://github.com/maheeashah/travogram-travel-planner" target="_blank">Travogram Travel Planner</a></h3>
-      <p>Cloud-based travel itinerary builder using Azure Functions, Google Maps APIs, and Azure SQL. Built serverless APIs and integrated external data for dynamic travel planning.</p>
-    </div>
+  <h3>Travogram – Product-Led Integration of Google Places API</h3>
+  <p>Collaborated with a startup team to design and launch an Autocomplete search feature using the Google Places API. Led user story writing, created wireframes with Figma, participated in sprint planning, and improved backend efficiency to enhance search speed.</p>
 
-    <div class="project">
-      <h3><a href="https://github.com/maheeashah/ai-model-deployment-aws-" target="_blank">AI Model Deployment on AWS</a></h3>
-      <p>Developed a machine learning model and deployed it on AWS Lambda using API Gateway for real-time predictions, automated with GitHub Actions.</p>
-    </div>
+  <h3>Content Optimization Dashboard (Sports Media, Inc.)</h3>
+  <p>Led development of an internal dashboard to track SEO and marketing performance. Defined product requirements, created wireframes, and prioritized features, resulting in a 25% boost in campaign engagement.</p>
 
-    <div class="project">
-      <h3><a href="https://github.com/maheeashah/ncar-cesm-climate-simulation" target="_blank">NCAR CESM Climate Simulation</a></h3>
-      <p>Simulated and analyzed climate-ice sheet models using CESM/CISM workflows. Visualized surface profiles and explored high-performance cloud data workflows.</p>
-    </div>
+  <h3>Greenland Ice Sheet Simulation & Analysis (NCAR)</h3>
+  <p>Ran climate simulations on high-performance computing systems to analyze changes in Greenland’s ice sheet through 2100. Built modular workflows and visualizations to support research outputs.</p>
 
-  </section>
+</section>
 
-  <section class="fade-in">
-    <h2>Contact</h2>
-    <a class="button" href="https://linkedin.com/in/maheeshah" target="_blank">LinkedIn</a>
-    <a class="button" href="mailto:maheeashah@hotmail.com">Email Me</a>
-  </section>
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div><strong>Product Management</strong><br>User Stories, Roadmapping, Sprint Planning, Feature Prioritization</div>
+    <div><strong>Technical</strong><br>Python, Java, HTML, JavaScript, Machine Learning (TensorFlow, NumPy)</div>
+    <div><strong>Tools</strong><br>Git, VS Code, Jupyter, Figma, CESM, Google Cloud (basic)</div>
+    <div><strong>Methodologies</strong><br>Agile, Scrum, Version Control</div>
+  </div>
+</section>
 
-  <footer>
-    &copy; 2025 Mahee Shah. Designed with passion and clouds ☁️
-  </footer>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:maheeashah@hotmail.com">maheeashah@hotmail.com</a></p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/maheeshah" target="_blank">linkedin.com/in/maheeshah</a></p>
+  <p>GitHub: <a href="https://github.com/maheeashah" target="_blank">github.com/maheeashah</a></p>
+</section>
 
-<script>
-  // Intersection observer for fade-in animation
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  });
-
-  document.querySelectorAll('.fade-in').forEach(section => {
-    observer.observe(section);
-  });
-</script>
+<footer>
+  <p>© 2025 Mahee Shah</p>
+</footer>
 
 </body>
 </html>
