@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mahee Shah</title>
 
-  <!-- Google Brush-Script–style Font -->
+  <!-- Brush-script style -->
   <link
     href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap"
     rel="stylesheet"
   />
-
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -19,11 +18,10 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
-
   <style>
     :root {
       --navy: #001f3f;
-      --light-blue: #7FDBFF;
+      --baby-blue: #add8e6;
       --white: #ffffff;
       --text: #001f3f;
       --card-bg: #ffffff;
@@ -39,7 +37,6 @@
     }
     a { text-decoration: none; color: inherit; }
 
-    /* Header */
     header {
       background: var(--navy);
       color: var(--white);
@@ -57,16 +54,18 @@
       display: inline-block;
       margin-top: 1rem;
       padding: 0.75rem 1.5rem;
-      background: var(--light-blue);
+      background: var(--baby-blue);
       color: var(--navy);
       border-radius: var(--radius);
       transition: background 0.3s;
       font-family: sans-serif;
       font-weight: bold;
     }
-    .button:hover { background: var(--navy); color: var(--white); }
+    .button:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
 
-    /* Navigation */
     nav {
       background: var(--navy);
     }
@@ -85,12 +84,24 @@
       transition: background 0.3s;
     }
     nav ul li a:hover {
-      background: var(--light-blue);
+      background: var(--baby-blue);
       color: var(--navy);
       border-radius: var(--radius);
     }
 
-    section { padding: 4rem 1rem; }
+    /* Hero image */
+    #hero img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin: 2rem 0;
+    }
+
+    section {
+      padding: 4rem 1rem;
+    }
     .container { max-width: 900px; margin: 0 auto; }
     h2 {
       color: var(--navy);
@@ -99,8 +110,8 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Projects */
-    .projects {
+    /* Cards */
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
@@ -118,34 +129,12 @@
     }
     .card p { font-size: 0.95rem; }
 
-    /* Skills */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-    .skill-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1rem;
-      text-align: center;
-      font-family: sans-serif;
-      font-size: 0.95rem;
-    }
-    .skill-card strong {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--navy);
-    }
-
     /* Contact */
     .contact-list {
       list-style: none;
       display: flex;
       justify-content: center;
       gap: 2rem;
-      padding: 0;
       font-family: sans-serif;
     }
     .contact-list li a {
@@ -156,7 +145,9 @@
       gap: 0.5rem;
       transition: color 0.3s;
     }
-    .contact-list li a:hover { color: var(--light-blue); }
+    .contact-list li a:hover {
+      color: var(--baby-blue);
+    }
 
     footer {
       text-align: center;
@@ -182,23 +173,29 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#interests">Beyond the Keyboard</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+
+  <!-- Hero image -->
+  <section id="hero" class="container">
+    <img src="images/hero-code.jpg" alt="Coding workspace" />
+  </section>
 
   <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <h2>About Me</h2>
       <p>
-        Hi there! I’m Mahee—a Computer Science student at the University of Iowa who gets a kick out of
-        turning big ideas into real, user-friendly products. I started coding because I love puzzles,
-        but what keeps me hooked is the chance to work with people—gathering their feedback, sketching
-        out solutions, and guiding a feature from whiteboard to release. Whether I’m drafting user
-        stories in Figma or tweaking Python scripts, I’m always curious about “Why?” and “What’s next?”
-        I’m now looking for a hands-on internship where I can learn from seasoned PMs and grow my
-        skills in a structured team environment.
+        Hey there! I’m Mahee—a University of Iowa CS student who geeks out over
+        turning user pain points into polished features. I started coding to solve puzzles,
+        but I fell in love with product management when I realized how much fun it is to
+        chat with real users, sketch solutions in Figma, and rally a team around a shared vision.
+        When I’m not knee-deep in Python or drafting my next user story, you’ll find me
+        experimenting with spicy recipes, journaling my latest app ideas, or exploring nature
+        trails with my camera in hand.
       </p>
     </div>
   </section>
@@ -207,29 +204,59 @@
   <section id="projects">
     <div class="container">
       <h2>Projects</h2>
-      <div class="projects">
+      <div class="grid">
         <div class="card">
-          <h3>Travogram – Autocomplete with Google Places API</h3>
+          <h3>Travogram – Autocomplete Search</h3>
           <p>
-            I partnered with Travogram’s founders to build a location-search feature that feels
-            instant and intuitive. I sketched wireframes in Figma, broke features into user stories,
-            and led our Agile sprints—then optimized backend calls to slash search delays.
+            Teamed up with Travogram’s founders to build a lightning-fast location search
+            using Google Places API. I drew wireframes in Figma, wrote clear user stories,
+            ran Agile sprints, and tuned API calls to slash search delays.
           </p>
         </div>
         <div class="card">
           <h3>Content Dashboard (Sports Media)</h3>
           <p>
-            I drove the creation of an internal dashboard to visualize SEO and campaign metrics.
-            By defining requirements, designing mockups, and steering sprints, we saw a 25% bump
-            in engagement within weeks.
+            Led the creation of an SEO dashboard that visualized performance metrics in real-time.
+            Defined requirements, designed mockups, and prioritized features—resulting in a 25%
+            boost in user engagement.
           </p>
         </div>
         <div class="card">
-          <h3>Greenland Ice Sheet Analysis (NCAR)</h3>
+          <h3>Ice Sheet Simulations (NCAR)</h3>
           <p>
-            At NCAR, I dove into climate simulations on the Derecho supercomputer, built a workflow
-            to run model experiments, and crafted visuals that helped researchers quickly grasp
-            projected changes in Greenland’s ice sheet.
+            Ran complex climate models on NCAR’s Derecho supercomputer to study Greenland’s ice
+            changes. Built a workflow for rapid experiment setup and crafted visuals that helped
+            researchers grasp long-term trends.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEYOND THE KEYBOARD -->
+  <section id="interests">
+    <div class="container">
+      <h2>Beyond the Keyboard</h2>
+      <div class="grid">
+        <div class="card">
+          <h3><i class="fa-solid fa-pepper-hot"></i> Spicy Cooking</h3>
+          <p>
+            I love testing new recipes—from Szechuan noodles to homemade hot sauce—and sharing
+            the final dish with friends.
+          </p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-hiking"></i> Hiking & Photography</h3>
+          <p>
+            Weekends find me on local trails, camera in hand, capturing landscapes and seeking fresh
+            inspiration for my next UI concept.
+          </p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-pen-fancy"></i> Journaling</h3>
+          <p>
+            Keeping a daily journal helps me brainstorm product ideas, reflect on growth, and stay
+            centered.
           </p>
         </div>
       </div>
@@ -240,22 +267,22 @@
   <section id="skills">
     <div class="container">
       <h2>Skills</h2>
-      <div class="skills">
-        <div class="skill-card">
+      <div class="grid">
+        <div class="card">
           <strong>Product & Strategy</strong>
-          User Stories · Roadmapping · Sprint Planning · Feature Prioritization
+          <p>User Stories · Roadmapping · Sprint Planning · Feature Prioritization</p>
         </div>
-        <div class="skill-card">
+        <div class="card">
           <strong>Technical</strong>
-          Python · Java · HTML · JavaScript · Machine Learning
+          <p>Python · Java · HTML · JavaScript · Machine Learning</p>
         </div>
-        <div class="skill-card">
+        <div class="card">
           <strong>Tools</strong>
-          Git · VS Code · Jupyter · Figma · CESM · Google Cloud
+          <p>Git · VS Code · Jupyter · Figma · CESM · Google Cloud</p>
         </div>
-        <div class="skill-card">
+        <div class="card">
           <strong>Workflow</strong>
-          Agile · Scrum · Version Control · Data Analysis
+          <p>Agile · Scrum · Version Control · Data Analysis</p>
         </div>
       </div>
     </div>
@@ -278,7 +305,7 @@
         </li>
         <li>
           <a href="https://github.com/maheeashah" target="_blank">
-            <i class="fa-brands fa-github"></i> github.com/maheeashah
+            <i class="fa-brands fa-github"></i> github.com/maheeshah
           </a>
         </li>
       </ul>
