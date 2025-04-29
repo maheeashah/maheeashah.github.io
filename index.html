@@ -5,12 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mahee Shah</title>
 
-  <!-- Google Brush-Script–style Font -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap"
-    rel="stylesheet"
-  />
-
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
   <!-- Font Awesome for icons -->
   <link
     rel="stylesheet"
@@ -22,53 +18,44 @@
 
   <style>
     :root {
-      --navy: #001f3f;
-      --light-blue: #7FDBFF;
-      --white: #ffffff;
-      --text: #001f3f;
+      --primary: #2e86de;
+      --secondary: #1b4f72;
+      --background: #f5f7fa;
       --card-bg: #ffffff;
+      --text: #333333;
       --radius: 8px;
       --shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Alex Brush', cursive;
-      background: var(--white);
+      font-family: 'Roboto', sans-serif;
+      background: var(--background);
       color: var(--text);
       line-height: 1.6;
     }
-    a { text-decoration: none; color: inherit; }
+    a { text-decoration: none; }
 
-    /* Header */
     header {
-      background: var(--navy);
-      color: var(--white);
+      background: var(--primary);
+      color: white;
       text-align: center;
       padding: 4rem 1rem;
     }
-    header h1 {
-      font-size: 3.5rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.25rem;
-    }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.2rem; }
     .button {
       display: inline-block;
       margin-top: 1rem;
       padding: 0.75rem 1.5rem;
-      background: var(--light-blue);
-      color: var(--navy);
+      background: var(--secondary);
+      color: white;
       border-radius: var(--radius);
       transition: background 0.3s;
-      font-family: sans-serif;
-      font-weight: bold;
     }
-    .button:hover { background: var(--navy); color: var(--white); }
+    .button:hover { background: var(--primary); }
 
-    /* Navigation */
     nav {
-      background: var(--navy);
+      background: var(--secondary);
     }
     nav ul {
       list-style: none;
@@ -78,23 +65,21 @@
     }
     nav ul li { margin: 0 1rem; }
     nav ul li a {
-      color: var(--white);
-      font-family: sans-serif;
+      color: white;
       font-weight: bold;
       padding: 0.5rem 0.75rem;
       transition: background 0.3s;
     }
-    nav ul li a:hover {
-      background: var(--light-blue);
-      color: var(--navy);
-      border-radius: var(--radius);
-    }
+    nav ul li a:hover { background: var(--primary); border-radius: var(--radius); }
 
-    section { padding: 4rem 1rem; }
+    section {
+      padding: 4rem 1rem;
+    }
     .container { max-width: 900px; margin: 0 auto; }
+
     h2 {
-      color: var(--navy);
-      font-size: 2.5rem;
+      color: var(--primary);
+      font-size: 2rem;
       text-align: center;
       margin-bottom: 1.5rem;
     }
@@ -110,13 +95,11 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 1.5rem;
-      font-family: sans-serif;
     }
     .card h3 {
-      color: var(--navy);
+      color: var(--secondary);
       margin-bottom: 0.5rem;
     }
-    .card p { font-size: 0.95rem; }
 
     /* Skills */
     .skills {
@@ -130,13 +113,11 @@
       box-shadow: var(--shadow);
       padding: 1rem;
       text-align: center;
-      font-family: sans-serif;
-      font-size: 0.95rem;
     }
     .skill-card strong {
       display: block;
       margin-bottom: 0.5rem;
-      color: var(--navy);
+      color: var(--secondary);
     }
 
     /* Contact */
@@ -146,7 +127,6 @@
       justify-content: center;
       gap: 2rem;
       padding: 0;
-      font-family: sans-serif;
     }
     .contact-list li a {
       color: var(--text);
@@ -156,14 +136,13 @@
       gap: 0.5rem;
       transition: color 0.3s;
     }
-    .contact-list li a:hover { color: var(--light-blue); }
+    .contact-list li a:hover { color: var(--primary); }
 
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      background: var(--navy);
-      color: var(--white);
-      font-family: sans-serif;
+      background: var(--secondary);
+      color: white;
     }
   </style>
 </head>
@@ -172,10 +151,8 @@
 
   <header>
     <h1>Mahee Shah</h1>
-    <p>CS Student • Aspiring Product Manager • Creative Problem-Solver</p>
-    <a class="button" href="path/to/your/resume.pdf" target="_blank">
-      <i class="fa-solid fa-download"></i> Download Resume
-    </a>
+    <p>Computer Science Student | Aspiring Product Manager | Problem Solver</p>
+    <a class="button" href="path/to/your/resume.pdf" target="_blank">Download Resume</a>
   </header>
 
   <nav>
@@ -187,98 +164,90 @@
     </ul>
   </nav>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <h2>About Me</h2>
       <p>
-        Hi there! I’m Mahee—a Computer Science student at the University of Iowa who gets a kick out of
-        turning big ideas into real, user-friendly products. I started coding because I love puzzles,
-        but what keeps me hooked is the chance to work with people—gathering their feedback, sketching
-        out solutions, and guiding a feature from whiteboard to release. Whether I’m drafting user
-        stories in Figma or tweaking Python scripts, I’m always curious about “Why?” and “What’s next?”
-        I’m now looking for a hands-on internship where I can learn from seasoned PMs and grow my
-        skills in a structured team environment.
+        I'm a Computer Science student passionate about building technology-driven solutions that are both
+        technically strong and user-centered. My work bridges product management, software development,
+        and data analysis. Whether I'm writing code, designing features, or collaborating across teams,
+        I enjoy working at the intersection of technology, strategy, and impact.
       </p>
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
       <h2>Projects</h2>
       <div class="projects">
         <div class="card">
-          <h3>Travogram – Autocomplete with Google Places API</h3>
+          <h3>Travogram – Product-Led Google Places API Integration</h3>
           <p>
-            I partnered with Travogram’s founders to build a location-search feature that feels
-            instant and intuitive. I sketched wireframes in Figma, broke features into user stories,
-            and led our Agile sprints—then optimized backend calls to slash search delays.
+            Collaborated with a startup to design and launch an Autocomplete search feature using the
+            Google Places API. Led user story writing, crafted Figma wireframes, participated in sprint
+            planning, and optimized backend calls to boost search speed.
           </p>
         </div>
         <div class="card">
-          <h3>Content Dashboard (Sports Media)</h3>
+          <h3>Content Optimization Dashboard</h3>
           <p>
-            I drove the creation of an internal dashboard to visualize SEO and campaign metrics.
-            By defining requirements, designing mockups, and steering sprints, we saw a 25% bump
-            in engagement within weeks.
+            Led development of an internal dashboard at Sports Media to track SEO and marketing performance.
+            Defined product requirements and wireframes, prioritized features in Agile sprints, and boosted
+            campaign engagement by 25%.
           </p>
         </div>
         <div class="card">
-          <h3>Greenland Ice Sheet Analysis (NCAR)</h3>
+          <h3>Greenland Ice Sheet Simulation & Analysis</h3>
           <p>
-            At NCAR, I dove into climate simulations on the Derecho supercomputer, built a workflow
-            to run model experiments, and crafted visuals that helped researchers quickly grasp
-            projected changes in Greenland’s ice sheet.
+            Ran climate simulations on NCAR’s HPC systems to analyze changes in Greenland’s ice sheet
+            through 2100. Built modular workflows and visuals to support research findings.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
     <div class="container">
       <h2>Skills</h2>
       <div class="skills">
         <div class="skill-card">
-          <strong>Product & Strategy</strong>
-          User Stories · Roadmapping · Sprint Planning · Feature Prioritization
+          <strong>Product Management</strong>
+          <span>User Stories · Roadmapping · Sprint Planning · Feature Prioritization</span>
         </div>
         <div class="skill-card">
           <strong>Technical</strong>
-          Python · Java · HTML · JavaScript · Machine Learning
+          <span>Python · Java · HTML · JavaScript · Machine Learning (TensorFlow, NumPy)</span>
         </div>
         <div class="skill-card">
           <strong>Tools</strong>
-          Git · VS Code · Jupyter · Figma · CESM · Google Cloud
+          <span>Git · VS Code · Jupyter · Figma · CESM · Google Cloud (basic)</span>
         </div>
         <div class="skill-card">
-          <strong>Workflow</strong>
-          Agile · Scrum · Version Control · Data Analysis
+          <strong>Methodologies</strong>
+          <span>Agile · Scrum · Version Control</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
-      <h2>Get in Touch</h2>
+      <h2>Contact</h2>
       <ul class="contact-list">
         <li>
           <a href="mailto:maheeashah@hotmail.com">
-            <i class="fa-solid fa-envelope"></i> maheeashah@hotmail.com
+            <i class="fa-solid fa-envelope"></i> Email
           </a>
         </li>
         <li>
           <a href="https://linkedin.com/in/maheeshah" target="_blank">
-            <i class="fa-brands fa-linkedin"></i> linkedin.com/in/maheeshah
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
           </a>
         </li>
         <li>
           <a href="https://github.com/maheeashah" target="_blank">
-            <i class="fa-brands fa-github"></i> github.com/maheeashah
+            <i class="fa-brands fa-github"></i> GitHub
           </a>
         </li>
       </ul>
