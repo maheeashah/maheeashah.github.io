@@ -1,262 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mahee Shah</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mahee Shah — builds maps, ships fast</title>
+<meta name="description" content="Mahee Shah — full-stack & mobile engineer building real-time maps, simulations, and AI-powered products." />
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
-  <!-- Font Awesome for icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-pM8+6WjXJmVzR0+MRKk5VEN2rXg+RlW9k+VQ4k7lE+rqW7y1CU8UN7fapVUGkK/5OWQA7rP0RXZZVJc2D0P/Lg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-  <style>
-    :root {
-      --primary: #2e86de;
-      --secondary: #1b4f72;
-      --background: #f5f7fa;
-      --card-bg: #ffffff;
-      --text: #333333;
-      --radius: 8px;
-      --shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: var(--background);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    a { text-decoration: none; }
+<style>
+  /* ============================================================
+     DESIGN TOKENS
+     ============================================================ */
+  :root{
+    --paper:#F1ECFA;        /* pale lilac canvas */
+    --paper-2:#E8E0F6;      /* slightly deeper lilac */
+    --card:#FBF9FE;         /* near-white card */
+    --ink:#1A1426;          /* deep aubergine-black */
+    --ink-soft:#5A5070;     /* muted text */
+    --violet:#6C4DF6;       /* primary pop */
+    --violet-deep:#553BD6;  /* accessible violet for small text */
+    --pink:#FF5C8A;         /* fun secondary */
+    --mint:#0FC79A;         /* "live / active" */
+    --line:rgba(26,20,38,0.12);
+    --line-strong:rgba(26,20,38,0.22);
 
-    header {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 4rem 1rem;
-    }
-    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    header p { font-size: 1.2rem; }
-    .button {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--secondary);
-      color: white;
-      border-radius: var(--radius);
-      transition: background 0.3s;
-    }
-    .button:hover { background: var(--primary); }
+    --display:"Bricolage Grotesque", system-ui, sans-serif;
+    --body:"Inter", system-ui, sans-serif;
+    --mono:"Space Mono", ui-monospace, monospace;
+  }
 
-    nav {
-      background: var(--secondary);
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      padding: 0.5rem 0;
-    }
-    nav ul li { margin: 0 1rem; }
-    nav ul li a {
-      color: white;
-      font-weight: bold;
-      padding: 0.5rem 0.75rem;
-      transition: background 0.3s;
-    }
-    nav ul li a:hover { background: var(--primary); border-radius: var(--radius); }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
 
-    section {
-      padding: 4rem 1rem;
-    }
-    .container { max-width: 900px; margin: 0 auto; }
+  ::selection{background:var(--pink);color:#fff;}
 
-    h2 {
-      color: var(--primary);
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--violet);
+    outline-offset:3px;
+    border-radius:4px;
+  }
 
-    /* Projects */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.5rem;
-    }
-    .card h3 {
-      color: var(--secondary);
-      margin-bottom: 0.5rem;
-    }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
 
-    /* Skills */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-    .skill-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1rem;
-      text-align: center;
-    }
-    .skill-card strong {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--secondary);
-    }
+  .mono{font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);}
 
-    /* Contact */
-    .contact-list {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 0;
-    }
-    .contact-list li a {
-      color: var(--text);
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: color 0.3s;
-    }
-    .contact-list li a:hover { color: var(--primary); }
+  /* ============================================================
+     AMBIENT BLOB (one ambient element, frozen on reduced motion)
+     ============================================================ */
+  .blob{
+    position:fixed;
+    top:-22vh;right:-18vw;
+    width:70vw;height:70vw;
+    max-width:880px;max-height:880px;
+    background:
+      radial-gradient(closest-side, rgba(108,77,246,0.55), transparent 70%),
+      radial-gradient(closest-side at 70% 60%, rgba(255,92,138,0.40), transparent 70%),
+      radial-gradient(closest-side at 35% 75%, rgba(15,199,154,0.40), transparent 70%);
+    filter:blur(60px);
+    z-index:0;
+    pointer-events:none;
+    animation:drift 22s ease-in-out infinite alternate;
+  }
+  @keyframes drift{
+    0%{transform:translate(0,0) scale(1);}
+    100%{transform:translate(-6%,8%) scale(1.12);}
+  }
 
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: var(--secondary);
-      color: white;
-    }
-  </style>
+  /* ============================================================
+     NAV
+     ============================================================ */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:saturate(160%) blur(10px);
+    background:rgba(241,236,250,0.72);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px;}
+  .brand{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-0.01em;text-decoration:none;display:flex;align-items:center;gap:9px;}
+  .brand .pin{width:11px;height:11px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(15,199,154,0.22);}
+  .nav-links{display:flex;align-items:center;gap:22px;}
+  .nav-links a{font-size:14px;text-decoration:none;color:var(--ink-soft);transition:color .18s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{
+    font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;
+    text-decoration:none;color:#fff;background:var(--ink);
+    padding:9px 15px;border-radius:999px;transition:transform .18s, background .18s;
+  }
+  .nav-cta:hover{background:var(--violet);transform:translateY(-1px);}
+  @media(max-width:640px){.nav-links a.hide-sm{display:none;}}
+
+  /* ============================================================
+     ROUTE RAIL (signature)
+     ============================================================ */
+  .rail{position:fixed;left:34px;top:20vh;bottom:16vh;width:2px;z-index:40;}
+  .rail .track{position:absolute;inset:0;background:var(--line-strong);border-radius:2px;}
+  .rail .fill{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(var(--violet),var(--mint));border-radius:2px;}
+  .rail .marker{
+    position:absolute;left:50%;top:0;width:16px;height:16px;border-radius:50%;
+    transform:translate(-50%,-50%);background:var(--mint);
+    box-shadow:0 0 0 5px rgba(15,199,154,0.25), 0 4px 14px rgba(15,199,154,0.5);
+  }
+  .rail .marker::after{
+    content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid var(--mint);
+    animation:ping 2.2s ease-out infinite;
+  }
+  @keyframes ping{0%{transform:scale(.7);opacity:.9}100%{transform:scale(2.2);opacity:0}}
+  .stops{position:absolute;inset:0;}
+  .stop-tick{position:absolute;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px;}
+  .stop-tick .dot{width:9px;height:9px;border-radius:50%;background:var(--paper);border:2px solid var(--line-strong);transition:border-color .25s, background .25s;}
+  .stop-tick.active .dot{background:var(--violet);border-color:var(--violet);}
+  .stop-tick .lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;opacity:.55;transition:opacity .25s,color .25s;}
+  .stop-tick.active .lbl{opacity:1;color:var(--ink);}
+  @media(max-width:1180px){.rail{display:none;}}
+
+  /* slim top progress bar for small screens */
+  .topbar{position:fixed;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--violet),var(--mint));z-index:60;}
+  @media(min-width:1181px){.topbar{display:none;}}
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  header.hero{position:relative;z-index:1;padding:74px 0 56px;}
+  .status{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:var(--mono);font-size:12px;letter-spacing:0.04em;text-transform:uppercase;
+    background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px;color:var(--ink-soft);
+  }
+  .status .live{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(15,199,154,.7);animation:beat 1.8s infinite;}
+  @keyframes beat{0%{box-shadow:0 0 0 0 rgba(15,199,154,.6)}70%{box-shadow:0 0 0 8px rgba(15,199,154,0)}100%{box-shadow:0 0 0 0 rgba(15,199,154,0)}}
+
+  .hero h1{
+    font-family:var(--display);font-weight:800;
+    font-size:clamp(56px, 12vw, 168px);
+    line-height:0.92;letter-spacing:-0.03em;margin:26px 0 0;
+  }
+  .hero h1 .out{
+    -webkit-text-stroke:2px var(--ink);
+    color:transparent;
+  }
+  .tagline{
+    margin-top:22px;font-size:clamp(20px,3.2vw,30px);font-weight:500;line-height:1.25;max-width:760px;
+  }
+  .tagline .swap{color:var(--violet-deep);font-family:var(--display);font-weight:800;white-space:nowrap;}
+  .coords{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 26px;}
+  .coords span{font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);}
+  .coords b{color:var(--ink);font-weight:700;}
+
+  .scroll-cue{margin-top:46px;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);}
+  .scroll-cue .arr{display:inline-block;animation:bob 1.6s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+  /* ============================================================
+     SECTION SCAFFOLD
+     ============================================================ */
+  section{position:relative;z-index:1;padding:64px 0;}
+  .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:30px;}
+  .eyebrow .num{font-family:var(--mono);font-size:12px;letter-spacing:0.12em;color:var(--violet-deep);}
+  .eyebrow .ttl{font-family:var(--display);font-weight:800;font-size:clamp(26px,4vw,40px);letter-spacing:-0.02em;}
+  .eyebrow .rule{flex:1;height:1px;background:var(--line);}
+
+  /* ABOUT */
+  .about p{font-size:clamp(20px,2.6vw,28px);line-height:1.4;max-width:880px;font-weight:500;}
+  .about .hl{background:linear-gradient(transparent 62%, rgba(255,92,138,0.35) 0);padding:0 2px;}
+
+  /* PROJECT CARDS */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .card{
+    position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    display:flex;flex-direction:column;min-height:100%;
+  }
+  .card:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(26,20,38,0.12);border-color:var(--line-strong);}
+  .card.feature{grid-column:1 / -1;}
+  .card .stop{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);}
+  .card h3{font-family:var(--display);font-weight:800;letter-spacing:-0.02em;margin:10px 0 4px;line-height:1.02;font-size:clamp(26px,3.4vw,40px);}
+  .card .role{font-family:var(--mono);font-size:12px;color:var(--violet-deep);text-transform:uppercase;letter-spacing:0.05em;}
+  .card p.desc{margin:16px 0 0;color:var(--ink);max-width:62ch;}
+  .feature .two{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:start;}
+
+  .metrics{display:flex;flex-wrap:wrap;gap:26px;margin:22px 0 4px;}
+  .metric .big{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,52px);line-height:1;letter-spacing:-0.02em;}
+  .metric .big.v{color:var(--violet-deep);}
+  .metric .big.p{color:var(--pink);}
+  .metric .big.m{color:var(--mint);}
+  .metric .cap{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-soft);margin-top:6px;max-width:18ch;}
+
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .tag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.04em;padding:6px 11px;border:1px solid var(--line-strong);border-radius:999px;color:var(--ink-soft);}
+
+  .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:22px;}
+  .lk{
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.05em;
+    padding:9px 14px;border-radius:999px;border:1px solid var(--ink);color:var(--ink);
+    transition:background .18s,color .18s,transform .18s,border-color .18s;
+  }
+  .lk:hover{background:var(--ink);color:#fff;transform:translateY(-1px);}
+  .lk.solid{background:var(--violet);border-color:var(--violet);color:#fff;}
+  .lk.solid:hover{background:var(--violet-deep);border-color:var(--violet-deep);}
+  .lk .a{transition:transform .18s;}
+  .lk:hover .a{transform:translate(2px,-2px);}
+
+  /* image / shot placeholders */
+  .shots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+  .shot{
+    aspect-ratio:4/3;border-radius:14px;border:1.5px dashed var(--line-strong);
+    background:linear-gradient(135deg, rgba(108,77,246,0.10), rgba(15,199,154,0.10));
+    display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;
+    font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-soft);
+  }
+  .shot.tall{aspect-ratio:3/4;}
+
+  /* ============================================================
+     FOOTER / CONTACT
+     ============================================================ */
+  footer{position:relative;z-index:1;padding:80px 0 48px;border-top:1px solid var(--line);margin-top:40px;}
+  .foot-head{font-family:var(--display);font-weight:800;letter-spacing:-0.03em;font-size:clamp(44px,9vw,120px);line-height:0.92;}
+  .foot-head a{color:var(--violet-deep);text-decoration:none;}
+  .foot-head a:hover{color:var(--pink);}
+  .foot-row{display:flex;flex-wrap:wrap;gap:14px 26px;margin-top:34px;align-items:center;}
+  .foot-row a{font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:0.05em;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line-strong);padding-bottom:2px;transition:color .18s,border-color .18s;}
+  .foot-row a:hover{color:var(--violet-deep);border-color:var(--violet-deep);}
+  .colophon{margin-top:46px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:0.04em;}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:760px){
+    .grid{grid-template-columns:1fr;}
+    .feature .two{grid-template-columns:1fr;gap:22px;}
+    .wrap{padding:0 20px;}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none !important;scroll-behavior:auto !important;}
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+</style>
 </head>
-
 <body>
 
-  <header>
-    <h1>Mahee Shah</h1>
-    <p>Computer Science Student | Aspiring Product Manager | Problem Solver</p>
-    <a class="button" href="path/to/your/resume.pdf" target="_blank">Download Resume</a>
-  </header>
+<div class="blob" aria-hidden="true"></div>
+<div class="topbar" id="topbar" aria-hidden="true"></div>
 
-  <nav>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<!-- ROUTE RAIL (desktop signature) -->
+<div class="rail" id="rail" aria-hidden="true">
+  <div class="track"></div>
+  <div class="fill" id="railFill"></div>
+  <div class="stops" id="railStops"></div>
+  <div class="marker" id="railMarker"></div>
+</div>
 
-  <section id="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>
-        I'm a Computer Science student passionate about building technology-driven solutions that are both
-        technically strong and user-centered. My work bridges product management, software development,
-        and data analysis. Whether I'm writing code, designing features, or collaborating across teams,
-        I enjoy working at the intersection of technology, strategy, and impact.
-      </p>
+<!-- NAV -->
+<nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><span class="pin"></span>Mahee Shah</a>
+    <div class="nav-links">
+      <a class="hide-sm" href="#work">Work</a>
+      <a class="hide-sm" href="#about">About</a>
+      <a href="https://github.com/maheeashah" target="_blank" rel="noopener">GitHub</a>
+      <!-- ↪ RESUME: drop your PDF into this folder and point href to ./Mahee_Shah_Resume.pdf (or any link) -->
+      <a class="nav-cta" href="ADD_RESUME_LINK" target="_blank" rel="noopener">Resume ↗</a>
     </div>
-  </section>
+  </div>
+</nav>
 
-  <section id="projects">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="projects">
-        <div class="card">
-          <h3>Travogram – Product-Led Google Places API Integration</h3>
-          <p>
-            Collaborated with a startup to design and launch an Autocomplete search feature using the
-            Google Places API. Led user story writing, crafted Figma wireframes, participated in sprint
-            planning, and optimized backend calls to boost search speed.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Content Optimization Dashboard</h3>
-          <p>
-            Led development of an internal dashboard at Sports Media to track SEO and marketing performance.
-            Defined product requirements and wireframes, prioritized features in Agile sprints, and boosted
-            campaign engagement by 25%.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Greenland Ice Sheet Simulation & Analysis</h3>
-          <p>
-            Ran climate simulations on NCAR’s HPC systems to analyze changes in Greenland’s ice sheet
-            through 2100. Built modular workflows and visuals to support research findings.
-          </p>
-        </div>
-      </div>
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="status"><span class="live"></span>Live — building an AI layer @ Wabtec</span>
+    <h1>MAHEE<br><span class="out">SHAH</span></h1>
+    <p class="tagline">I build software that <span class="swap" id="swap">moves things</span>.<br>Full-stack &amp; mobile engineer — maps, simulations, and AI-powered products.</p>
+    <div class="coords">
+      <span>📍 <b>Iowa City, IA</b> · 41.66°N, 91.53°W</span>
+      <span>B.S. Computer Science · <b>Iowa</b></span>
+      <span>Status: <b>open to grad roles, Dec ’26</b></span>
     </div>
-  </section>
+    <a class="scroll-cue" href="#work"><span class="arr">↓</span> Follow the route</a>
+  </div>
+</header>
 
-  <section id="skills">
-    <div class="container">
-      <h2>Skills</h2>
-      <div class="skills">
-        <div class="skill-card">
-          <strong>Product Management</strong>
-          <span>User Stories · Roadmapping · Sprint Planning · Feature Prioritization</span>
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="num">/ 00</span><span class="ttl">The short version</span><span class="rule"></span></div>
+    <p>I like turning <span class="hl">messy, heavy data</span> into things people can actually use — live maps, fast tools, real products. I move quickly, own work end to end, and care about the experience that ships, not just the code underneath it.</p>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="num">/ THE ROUTE</span><span class="ttl">Selected work</span><span class="rule"></span></div>
+
+    <div class="grid">
+
+      <!-- ============ STOP 01 — WABTEC (FEATURE) ============ -->
+      <article class="card feature reveal" data-stop="Wabtec">
+        <div class="two">
+          <div>
+            <span class="stop">◉ Stop 01 — Live mapping</span>
+            <h3>Real-time train mapping &amp; simulation</h3>
+            <span class="role">Software Engineering Intern · Wabtec</span>
+            <p class="desc">Built an end-to-end mapping feature and a real-time simulation that renders 1000+ live train locations in React Native — owning it from the data layer to the UI. Wrote decoding logic for multi-GB data files, optimized AWS S3 querying, and am now building an AI layer on top.</p>
+            <div class="tags">
+              <span class="tag">React Native</span>
+              <span class="tag">AWS S3</span>
+              <span class="tag">Real-time</span>
+              <span class="tag">Data decoding</span>
+              <span class="tag">AI layer</span>
+            </div>
+            <div class="links">
+              <!-- ↪ WABTEC REPO: paste your repo URL into href -->
+              <a class="lk solid" href="ADD_WABTEC_REPO_LINK" target="_blank" rel="noopener">View repo <span class="a">↗</span></a>
+            </div>
+          </div>
+          <div>
+            <div class="metrics">
+              <div class="metric"><div class="big v">1000+</div><div class="cap">live train locations rendered</div></div>
+              <div class="metric"><div class="big p">60%</div><div class="cap">faster data processing</div></div>
+              <div class="metric"><div class="big m">GB+</div><div class="cap">heavy files decoded</div></div>
+            </div>
+          </div>
         </div>
-        <div class="skill-card">
-          <strong>Technical</strong>
-          <span>Python · Java · HTML · JavaScript · Machine Learning (TensorFlow, NumPy)</span>
+      </article>
+
+      <!-- ============ STOP 02 — NCAR ============ -->
+      <article class="card reveal" data-stop="NCAR">
+        <span class="stop">◉ Stop 02 — Data at scale</span>
+        <h3>Climate data, supercomputer scale</h3>
+        <span class="role">Software Engineering Intern · NCAR</span>
+        <p class="desc">Refactored a legacy Fortran codebase powering upper-atmospheric climate models, and built a data-retrieval tool that benchmarks server speeds in real time and routes to the fastest source — cutting retrieval time 40% across multi-terabyte datasets running on the Derecho supercomputer.</p>
+        <div class="shots">
+          <!-- ↪ NCAR PHOTOS: replace each placeholder div with <img src="./assets/ncar-1.jpg" alt="..."> -->
+          <div class="shot">NCAR / photo 1<br>(replace)</div>
+          <div class="shot">NCAR / photo 2<br>(replace)</div>
         </div>
-        <div class="skill-card">
-          <strong>Tools</strong>
-          <span>Git · VS Code · Jupyter · Figma · CESM · Google Cloud (basic)</span>
+        <div class="tags">
+          <span class="tag">Fortran</span>
+          <span class="tag">HPC</span>
+          <span class="tag">40% faster</span>
+          <span class="tag">Climate</span>
         </div>
-        <div class="skill-card">
-          <strong>Methodologies</strong>
-          <span>Agile · Scrum · Version Control</span>
+        <div class="links">
+          <!-- ↪ NCAR PRESENTATION link -->
+          <a class="lk" href="ADD_NCAR_PRESENTATION_LINK" target="_blank" rel="noopener">Presentation <span class="a">↗</span></a>
+          <!-- ↪ NCAR REPO link -->
+          <a class="lk" href="ADD_NCAR_REPO_LINK" target="_blank" rel="noopener">GitHub <span class="a">↗</span></a>
         </div>
-      </div>
+      </article>
+
+      <!-- ============ STOP 03 — APPLIED AI ============ -->
+      <article class="card reveal" data-stop="Applied AI">
+        <span class="stop">◉ Stop 03 — Shipping for real users</span>
+        <h3>AI for real businesses</h3>
+        <span class="role">Executive Board, Consulting Branch · Applied AI</span>
+        <p class="desc">On the exec board of Iowa’s Applied AI consulting branch — I scope, build, and ship AI and automation projects for 5 local businesses with cross-functional student teams, owning each problem from definition through delivery.</p>
+        <div class="tags">
+          <span class="tag">AI / Automation</span>
+          <span class="tag">5 clients</span>
+          <span class="tag">Leadership</span>
+        </div>
+        <div class="links">
+          <!-- ↪ APPLIED AI WEBSITE link -->
+          <a class="lk" href="ADD_APPLIED_AI_WEBSITE_LINK" target="_blank" rel="noopener">Visit site <span class="a">↗</span></a>
+        </div>
+      </article>
+
+      <!-- ============ STOP 04 — GLOBAL ACCELERATOR ============ -->
+      <article class="card reveal" data-stop="Global Accelerator">
+        <span class="stop">◉ Stop 04 — Where it started</span>
+        <h3>Early builds — Global Accelerator</h3>
+        <span class="role">Hand-coded web projects</span>
+        <p class="desc">A set of from-scratch HTML/CSS/JS projects from the Global Accelerator program — the early builds where I first fell for shipping things on the web. <em>(Add a one-line note about your favorite one!)</em></p>
+        <div class="shots">
+          <!-- ↪ GLOBAL ACCELERATOR: replace with screenshots, or link each project below -->
+          <div class="shot">Project / screenshot<br>(replace)</div>
+          <div class="shot">Project / screenshot<br>(replace)</div>
+        </div>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <div class="links">
+          <!-- ↪ GLOBAL ACCELERATOR link(s) — add more <a> tags as needed -->
+          <a class="lk" href="ADD_GLOBAL_ACCELERATOR_LINK" target="_blank" rel="noopener">View projects <span class="a">↗</span></a>
+        </div>
+      </article>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact">
-    <div class="container">
-      <h2>Contact</h2>
-      <ul class="contact-list">
-        <li>
-          <a href="mailto:maheeashah@hotmail.com">
-            <i class="fa-solid fa-envelope"></i> Email
-          </a>
-        </li>
-        <li>
-          <a href="https://linkedin.com/in/maheeshah" target="_blank">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/maheeashah" target="_blank">
-            <i class="fa-brands fa-github"></i> GitHub
-          </a>
-        </li>
-      </ul>
+<!-- FOOTER -->
+<footer>
+  <div class="wrap reveal">
+    <div class="mono" style="margin-bottom:16px;">/ End of route — let’s keep going</div>
+    <div class="foot-head">Let’s build<br>something <a href="mailto:mahee-shah@uiowa.edu">→</a></div>
+    <div class="foot-row">
+      <a href="mailto:mahee-shah@uiowa.edu">mahee-shah@uiowa.edu</a>
+      <a href="https://www.linkedin.com/in/mahee-shah" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/maheeashah" target="_blank" rel="noopener">GitHub</a>
+      <a href="ADD_RESUME_LINK" target="_blank" rel="noopener">Résumé</a>
     </div>
-  </section>
+    <div class="colophon">Mahee Shah · Iowa City, IA · designed &amp; built from scratch · © <span id="yr"></span></div>
+  </div>
+</footer>
 
-  <footer>
-    <p>© 2025 Mahee Shah</p>
-  </footer>
+<script>
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    /* ---- tagline word swap ---- */
+    var words = ["moves things","builds maps","ships fast","decodes chaos","just works"];
+    var el = document.getElementById('swap');
+    if(!reduce){
+      var i=0;
+      setInterval(function(){
+        i=(i+1)%words.length;
+        el.style.transition='opacity .25s';
+        el.style.opacity='0';
+        setTimeout(function(){ el.textContent=words[i]; el.style.opacity='1'; },260);
+      }, 2300);
+    }
+
+    /* ---- build route-rail stops from project cards ---- */
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.card[data-stop]'));
+    var stopsWrap = document.getElementById('railStops');
+    var ticks = [];
+    cards.forEach(function(c, idx){
+      var t=document.createElement('div');
+      t.className='stop-tick';
+      t.innerHTML='<span class="dot"></span>';
+      stopsWrap.appendChild(t);
+      ticks.push({node:t, card:c});
+    });
+
+    var fill=document.getElementById('railFill');
+    var marker=document.getElementById('railMarker');
+    var topbar=document.getElementById('topbar');
+    var railEl=document.getElementById('rail');
+
+    function onScroll(){
+      var st=window.scrollY||document.documentElement.scrollTop;
+      var h=document.documentElement.scrollHeight-window.innerHeight;
+      var p=h>0?Math.min(1,Math.max(0,st/h)):0;
+      if(topbar) topbar.style.width=(p*100)+'%';
+      if(railEl && railEl.offsetParent!==null){
+        var railH=railEl.clientHeight;
+        fill.style.height=(p*railH)+'px';
+        marker.style.top=(p*railH)+'px';
+        /* position stop dots where the marker sits when each card is centered */
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        ticks.forEach(function(o){
+          var rect=o.card.getBoundingClientRect();
+          var centerAbs = rect.top + rect.height/2 + st;
+          var posScroll = centerAbs - window.innerHeight/2;
+          var frac = scrollable>0 ? Math.min(1, Math.max(0, posScroll/scrollable)) : 0;
+          o.node.style.top=(frac*railH)+'px';
+          var vis=rect.top<window.innerHeight*0.55 && rect.bottom>window.innerHeight*0.25;
+          o.node.classList.toggle('active', vis);
+        });
+      }
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+    onScroll();
+
+    /* ---- reveal on scroll ---- */
+    if('IntersectionObserver' in window && !reduce){
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+      },{threshold:0.16});
+      document.querySelectorAll('.reveal').forEach(function(n){io.observe(n);});
+    } else {
+      document.querySelectorAll('.reveal').forEach(function(n){n.classList.add('in');});
+    }
+  })();
+</script>
 </body>
 </html>
