@@ -178,6 +178,23 @@
   /* ABOUT */
   .about p{font-size:clamp(20px,2.6vw,28px);line-height:1.4;max-width:880px;font-weight:500;}
   .about .hl{background:linear-gradient(transparent 62%, rgba(255,92,138,0.35) 0);padding:0 2px;}
+  .about-grid{display:grid;grid-template-columns:300px 1fr;gap:46px;align-items:center;}
+  .portrait{position:relative;}
+  .portrait .frame{
+    width:100%;aspect-ratio:4/5;border-radius:22px;overflow:hidden;object-fit:cover;
+    border:1.5px dashed var(--line-strong);
+    background:linear-gradient(150deg, rgba(108,77,246,0.16), rgba(255,92,138,0.12), rgba(15,199,154,0.16));
+    display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;
+    font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-soft);
+  }
+  .portrait .cap{
+    position:absolute;left:12px;bottom:12px;display:inline-flex;align-items:center;gap:8px;
+    background:rgba(251,249,254,0.92);backdrop-filter:blur(6px);
+    border:1px solid var(--line);border-radius:999px;padding:6px 12px;
+    font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink);
+  }
+  .portrait .cap .live{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 3px rgba(15,199,154,0.22);}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:26px;max-width:320px;}}
 
   /* PROJECT CARDS */
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
@@ -301,7 +318,15 @@
 <section id="about" class="about">
   <div class="wrap reveal">
     <div class="eyebrow"><span class="num">/ 00</span><span class="ttl">The short version</span><span class="rule"></span></div>
-    <p>I like turning <span class="hl">messy, heavy data</span> into things people can actually use — live maps, fast tools, real products. I move quickly, own work end to end, and care about the experience that ships, not just the code underneath it.</p>
+    <div class="about-grid">
+      <div class="portrait">
+        <!-- ↪ YOUR PHOTO: replace this <div class="frame">...</div> with:
+             <img class="frame" src="./assets/mahee.jpg" alt="Mahee Shah"> -->
+        <div class="frame">Your photo<br>(replace)</div>
+        <span class="cap"><span class="live"></span>Mahee · Iowa City</span>
+      </div>
+      <p>I like turning <span class="hl">messy, heavy data</span> into things people can actually use — live maps, fast tools, real products. I move quickly, own work end to end, and care about the experience that ships, not just the code underneath it.</p>
+    </div>
   </div>
 </section>
 
